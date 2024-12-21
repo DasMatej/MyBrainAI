@@ -75,7 +75,7 @@ Enjoy your conversations with MyBrain, and welcome to a whole new world of AI co
 Clone the repository:
 
 ```bash
-
+git clone https://github.com/DasMatej/MyBrainAI.git
 ```
 
 Install dependencies:

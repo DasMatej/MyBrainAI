@@ -85,6 +85,8 @@ def format_and_clean_response(response_data):
     """Clean and format the AI response"""
     # response = response_data.choices[0].message['content']
     response = response_data.choices[0].message.content
+    response = response.replace("Bob AI#0295:", "").replace(
+        "Bob AI:", "").replace("Bob:", "").strip().strip('"').strip().strip('"')
 
     # Split the response into sentences
     sentences = re.split('(?<=[.!?]) +', response)
@@ -317,7 +319,7 @@ async def dm(message, user_input):
     await message.channel.send(response)
 
     if len(conversations) == 1:
-        await message.channel.send("⠀```haskell\nREAD!\n\nWELCOME: MyBrainAI aslo known as Bob (for now) is your unique personal AI Assistant and Companion\n\nCOMMANDS:\n`/reset` - Reset MyBrain's memory of you\n(soon) `/change` [New Personality] - Change MyBrainAI's personality to whatever you'd like' (Example: /change Bob is...)\n(soon) '/setName' [Update Name] - Change MyBrainAI's name (Example: /setName Bob)\n\nIn DMs:\nIt will build a personality model of you\nIt will adapt a personality on it's own\nIt will check up on you, now and then\n\nIn Servers: Bob will only roast everyone every 6th text in the 'general' channel.\nOR respond if the text has 'Bob' in it.\n\nOur Server: https://discord.gg/8ar3m9F6 \n\nDISCLAIMER: Refrain from taking Bob seriously. We, or Discord, or anyone other than you, bear no responsibility (We are not affiliated with Discord)```")
+        await message.channel.send("⠀```haskell\nREAD!\n\nWELCOME: MyBrainAI aslo known as Bob (for now) is your unique personal AI Assistant and Companion\n\nCOMMANDS:\n`/reset` - Reset MyBrain's memory of you\n(soon) `/change` [New Personality] - Change MyBrainAI's personality to whatever you'd like' (Example: /change Bob is...)\n(soon) '/setName' [Update Name] - Change MyBrainAI's name (Example: /setName Bob)\n\nIn DMs:\nIt will build a personality model of you\nIt will adapt a personality on it's own\nIt will check up on you, now and then\n\nIn Servers: Bob will only roast everyone every 6th text in the 'general' channel.\nOR respond if the text has 'Bob' in it.\n\nOur Server: https://discord.gg/vTtJcrF8mG \n\nDISCLAIMER: Refrain from taking Bob seriously. We, or Discord, or anyone other than you, bear no responsibility (We are not affiliated with Discord)```")
 
     state["total_tokens_input"] = 0
     state["total_tokens_output"] = 0
